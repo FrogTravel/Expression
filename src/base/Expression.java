@@ -4,7 +4,7 @@ package base;
  * Created by ekaterina on 10/11/17.
  * Super class for all Parts of expression
  */
-public class Expression {
+public abstract class Expression {
 
     private Expression left, right;
 
@@ -23,6 +23,8 @@ public class Expression {
     public void setRight(Expression right) {
         this.right = right;
     }
+
+    public abstract long calculate();
 
     /**
      * Prints tree

@@ -19,6 +19,12 @@ public class MyInteger extends Primary {
         this.value = value;
     }
 
+
+    @Override
+    public long calculate() {
+        return value;
+    }
+
     /**
      * Prints tree
      */

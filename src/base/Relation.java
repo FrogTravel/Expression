@@ -25,6 +25,29 @@ public class Relation extends Expression {
     }
 
 
+    @Override
+    public long calculate() {
+        long r1 = getLeft().calculate();
+        long r2 = getRight().calculate();
+
+        switch (op){
+            case less:
+                return (r1 < r2) ? 1 : 0;
+            case less_eq:
+                return (r1 <= r2) ? 1 : 0;
+            case greater:
+                return (r1 > r2) ? 1 : 0;
+            case greater_eq:
+                return (r1 >= r2) ? 1 : 0;
+            case equal:
+                return (r1 == r2) ? 1 : 0;
+            case not_eq:
+                return (r1 != r2) ? 1 : 0;
+
+        }
+        return 0;
+    }
+
     /**
      * Prints tree
      */

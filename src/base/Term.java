@@ -26,6 +26,20 @@ public class Term extends Expression{
     }
 
 
+    @Override
+    public long calculate() {
+        long r1 = getLeft().calculate();
+        long r2 = getRight().calculate();
+
+        switch (op){
+            case plus:
+                return r1 + r2;
+            case minus:
+                return r1 - r2;
+        }
+        return 0;
+    }
+
     /**
      * Prints tree
      */

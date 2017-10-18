@@ -7,5 +7,6 @@ public class Main {
         Parser parser = new Parser(line);
         Expression expression = parser.parse();
         System.out.println(expression.toString());
+        System.out.println("Expression Result: " + expression.calculate());
     }
 }

@@ -23,6 +23,23 @@ public class Logical extends Expression {
         this.op = op;
     }
 
+    @Override
+    public long calculate() {
+        long r1 = getLeft().calculate();
+        long r2 = getRight().calculate();
+
+        switch (op){
+            case and:
+                return ((r1 > 0) && (r2 > 0)) ? 1 : 0;
+            case or:
+                return ((r1 > 0) || (r2 > 0)) ? 1 : 0;
+            case xor:
+                return ((r1 > 0) ^ (r2 > 0)) ? 1 : 0;
+        }
+
+        return 0;
+    }
+
     public StringBuilder toString(StringBuilder prefix, boolean isTail, StringBuilder sb) {
         if(super.getRight()!=null) {
             super.getRight().toString(new StringBuilder().append(prefix).append(isTail ? "│   " : "    "), false, sb);
